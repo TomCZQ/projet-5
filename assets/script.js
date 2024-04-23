@@ -22,7 +22,6 @@ let arrowRightCarousel = document.getElementById("arrow_right");
 let dotsCarousel = document.querySelectorAll(".dots .dot");
 let photoSlide = document.querySelector("#banner .banner-img");
 let textBanner = document.querySelector("#banner p");
-
 let i = 0
 
 console.log(dotsCarousel);
@@ -45,8 +44,8 @@ function removeBullet(numeroSlide){
 
 
 arrowRightCarousel.addEventListener("click", (event) => {
-	removeBullet(i)
-	if(i === 3) {
+	removeBullet(i);
+	if(i === slides.length-1) {
 		i = 0;
 		
 	}else{
@@ -57,9 +56,9 @@ arrowRightCarousel.addEventListener("click", (event) => {
 })
 
 arrowLeftCarousel.addEventListener("click", (event) => {
-	removeBullet(i)
+	removeBullet(i);
 	if(i === 0) {
-		i = 3;
+		i = slides.length-1;
 	}else{
 		i--;
 	}
