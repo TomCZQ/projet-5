@@ -27,9 +27,9 @@ let i = 0
 console.log(dotsCarousel);
 
 // @numeroSlide=nombre chiffre entre 0 et 3
-function changementSlide(numeroSlide){
-	photoSlide.setAttribute("src", "./assets/images/slideshow/"+slides[numeroSlide].image);
-	textBanner.innerHTML=slides[numeroSlide].tagLine;
+function changementSlide(){
+	photoSlide.setAttribute("src", "./assets/images/slideshow/"+slides[i].image);
+	textBanner.innerHTML=slides[i].tagLine;
 }
 
 function addBullet(){
