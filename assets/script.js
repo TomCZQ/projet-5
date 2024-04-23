@@ -32,13 +32,13 @@ function changementSlide(numeroSlide){
 	textBanner.innerHTML=slides[numeroSlide].tagLine;
 }
 
-function addBullet(numeroSlide){
-	let selectedDot = dotsCarousel[numeroSlide];
+function addBullet(){
+	let selectedDot = dotsCarousel[i];
 	selectedDot.classList.add("dot_selected");
 }
 
-function removeBullet(numeroSlide){
-	let selectedDot = dotsCarousel[numeroSlide];
+function removeBullet(){
+	let selectedDot = dotsCarousel[i];
 	selectedDot.classList.remove("dot_selected");
 }
 
@@ -52,7 +52,7 @@ arrowRightCarousel.addEventListener("click", (event) => {
 		i++;
 	}
 	changementSlide(i);	
-	addBullet(i);
+	addBullet();
 })
 
 arrowLeftCarousel.addEventListener("click", (event) => {
@@ -63,6 +63,6 @@ arrowLeftCarousel.addEventListener("click", (event) => {
 		i--;
 	}
 	changementSlide(i);
-	addBullet(i);	
+	addBullet();	
 })
 
