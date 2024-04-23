@@ -22,6 +22,7 @@ let arrowRightCarousel = document.getElementById("arrow_right");
 let dotsCarousel = document.querySelectorAll(".dots .dot");
 let photoSlide = document.querySelector("#banner .banner-img");
 let textBanner = document.querySelector("#banner p");
+let dots = document.querySelector('.dots')
 let i = 0
 
 console.log(dotsCarousel);
@@ -31,38 +32,40 @@ function changementSlide(){
 	photoSlide.setAttribute("src", "./assets/images/slideshow/"+slides[i].image);
 	textBanner.innerHTML=slides[i].tagLine;
 }
-
-function addBullet(){
-	let selectedDot = dotsCarousel[i];
-	selectedDot.classList.add("dot_selected");
-}
-
-function removeBullet(){
-	let selectedDot = dotsCarousel[i];
-	selectedDot.classList.remove("dot_selected");
-}
-
-
 arrowRightCarousel.addEventListener("click", (event) => {
-	removeBullet(i);
 	if(i === slides.length-1) {
 		i = 0;
 		
 	}else{
 		i++;
 	}
-	changementSlide(i);	
-	addBullet();
+	changementSlide();	
+	createBulletPoint();
 })
 
 arrowLeftCarousel.addEventListener("click", (event) => {
-	removeBullet(i);
 	if(i === 0) {
 		i = slides.length-1;
 	}else{
 		i--;
 	}
-	changementSlide(i);
-	addBullet();	
+	changementSlide();
+	createBulletPoint();	
 })
 
+
+const createBulletPoint=() => {
+	dots.innerHTML= ''
+	for(let index=0; index<slides.length; index++){
+		const dot = document.createElement('div')
+		if(index === i){
+			dot.className='dot dot_selected'
+		}else{
+			dot.className='dot'
+		}
+
+		dots.appendChild(dot)	
+	}
+}
+
+createBulletPoint();
